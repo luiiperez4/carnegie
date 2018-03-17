@@ -133,6 +133,8 @@ class DownloadBooster extends Command
         do {
             curl_multi_exec($this->multiHandle, $running);
         } while ($running > 0);
+
+        $this->closeConnections();
     }
 
     private function closeConnections()
@@ -141,8 +143,6 @@ class DownloadBooster extends Command
             curl_multi_remove_handle($this->multiHandle, $handle);
         }
         curl_multi_close($this->multiHandle);
-
-        $this->closeConnections();
     }
 
     private function prepareResponse()
