@@ -147,9 +147,9 @@ class DownloadBooster extends Command
 
     private function prepareResponse()
     {
-            foreach ($this->curlHandles as $index => $handle) {
-                $this->result .= curl_multi_getcontent($handle);
-            }
+        foreach ($this->curlHandles as $index => $handle) {
+            $this->result .= curl_multi_getcontent($handle);
+        }
     }
 
     private function writeFile()
